@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+{% block description %}{{ section.description }}{% endblock %}
+
+{% block seo %}
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ section.description }}">
+    <meta name="keywords" content="4MB Jam, game jam, game development, indie games, coding challenge">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content=" 4MB Game Jam">
+    <meta property="og:description" content="{{ section.description }}">
+    <meta property="og:image" content="{{ config.base_url | safe }}/img/logo.png">
+    <meta property="og:url" content="{{ config.base_url | safe }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="4MB Game Jam">
+    <!-- Twitter/X Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="4MB Game Jam">
+    <meta name="twitter:description" content="{{ section.description }}">
+    <meta name="twitter:image" content="{{ config.base_url | safe }}/img/logo.png">
+{% endblock seo %}
+
+{% block head %}
+    <style>
+        article p {
+            text-align: center;
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}{{ section.content | safe }}{% endblock content %}
+       
