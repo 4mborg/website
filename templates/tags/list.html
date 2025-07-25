@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="archive">
+    <h1>{{ trans(key="tags", lang=lang) }}</h1>
+    <ul class="tag-list">
+        {% for term in terms | sort(attribute="page_count") | reverse %}
+            <li>
+                <a class="tag" href="{{ term.permalink }}">{{ term.name }}</a>
+                <span class="tagcount">{{ term.pages | length }}</span>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock content %}
