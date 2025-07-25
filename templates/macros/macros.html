@@ -22,6 +22,9 @@
                 {% if end_page > total_pages %}
                     {% set end_page = total_pages %}
                     {% set start_page = (total_pages - max_display + 1) %}
+                    {% if start_page < 1 %}
+                        {% set start_page = 1 %}
+                    {% endif %}
                 {% endif %}
 
                 <!-- First page and elipsis -->
