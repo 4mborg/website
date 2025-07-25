@@ -134,6 +134,20 @@ a:hover {
         color: rgb(204, 204, 204);
         padding: 1rem;
         padding-left: 1.4rem;
+        
+        h1:first-child {
+            padding-top: 1.2rem;
+            padding-bottom: 1.2rem;
+            border-bottom: none;
+            text-align: center;
+        }
+
+        .post-meta {
+            
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid #3d444db3;
+            margin-bottom: 1.2rem;
+        }
 
         h1 a:active,
         h1 a:link,
@@ -158,10 +172,6 @@ a:hover {
         h3 a:hover,
         h4 a:hover {
             text-decoration: underline;
-        }
-
-        h1 {
-            text-align: center;
         }
 
         h1:first-child a:active,
