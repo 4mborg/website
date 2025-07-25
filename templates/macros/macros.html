@@ -85,3 +85,15 @@
     {% endif %}
 {% endmacro %}
 
+{% macro post_excerpt(post) %}
+    {% if post %}
+        <p class="post-excerpt">
+            {% if post.summary %}
+                {{ post.summary | striptags | trim | safe }}
+            {% else %}
+                {{ post.content | striptags | trim | truncate(length=172) | safe }}
+            {% endif %}
+        </p>
+    {% endif %}
+{% endmacro %}
+
