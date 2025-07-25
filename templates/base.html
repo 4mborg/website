@@ -97,8 +97,8 @@
         </footer>
     </div>
     
-    {% set url = config.base_url %}
-    {% set hostname = url | replace(from="http://", to="") | replace(from="https://", to="") | split(pat=":") | first | split(pat="/") | first %}
-    <script>window.LiveReloadOptions = { https: true, host: '{{ hostname | safe }}', port: 443, };</script>
+{% if config.extra.liveReloadHostname %}
+    <script>window.LiveReloadOptions = { https: true, host: '{{ config.extra.liveReloadHostname | safe }}', port: 443, };</script>
+{% endif %}
 </body>
 </html>
