@@ -231,6 +231,48 @@ a:hover {
 
     }
 
+    .pagination {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 0.2rem;
+            padding: 0;
+        }
+
+        li {
+            display: inline-block;
+        }
+
+        a,
+        span {
+            padding: 0.2rem 0.4rem;
+            text-decoration: none;
+            border: 1px solid #00ff7f;
+            border-radius: 4px;
+            transition: all 0.4s;
+        }
+
+        a:hover {
+            background-color: #ffff4e;
+            color: #702122;
+        }
+
+        .current {
+            background-color: #00ff7f;
+            color: #003F00;
+            border-color: #00ff7f;
+        }
+
+        .disabled {
+            color: #003F00;
+            border-color: #003F00;
+            cursor: not-allowed;
+        }
+    }
     footer {
         display: flex;
         flex-wrap: wrap;
@@ -312,6 +354,11 @@ a:hover {
         margin: 10px;
         padding: 15px;
 
+
+        .pagination ul li:not(:first-child):not(:last-child):not(:has(.current)) {
+            display: none;
+        }
+        
         article .join-btn {
             padding: 10px 20px;
             font-size: 1rem;

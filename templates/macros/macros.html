@@ -1,0 +1,70 @@
+{% macro pagination(pager) %}
+    {% if pager %}
+        <nav class="pagination">
+            <ul>
+                <!-- Previous page link -->
+                {% if paginator.previous %}
+                    <li><a href="{{ paginator.previous }}" rel="prev">← Previous</a></li>
+                {% else %}
+                    <li><span class="disabled">← Previous</a></li>
+                {% endif %}
+
+                {% set current_page = pager.current_index %}
+                {% set total_pages = pager.number_pagers %}
+                {% set max_display = 5 %}
+                
+                {% set start_page = (current_page - max_display / 2) | round(method="floor") | int %}
+                {% if start_page < 1 %}
+                    {% set start_page = 1 %}
+                {% endif %}
+
+                {% set end_page = start_page + max_display - 1 %}
+                {% if end_page > total_pages %}
+                    {% set end_page = total_pages %}
+                    {% set start_page = (total_pages - max_display + 1) %}
+                {% endif %}
+
+                <!-- First page and elipsis -->
+                {% if start_page > 1 %}
+                    <li><a href="{{ pager.first }}">1</a></li>
+                    {% if start_page > 2 %}
+                        <li><span>...</span></li>
+                    {% endif %}
+                {% endif %}
+                
+                <!-- Page numbers -->
+                {% for i in range(start=start_page, end=end_page + 1) %}
+                    {% set page_url = paginator.base_url %}
+                    {% if i == 1 %}
+                        {% set page_url = paginator.first %}
+                    {% else %}
+                        {% set page_url = paginator.base_url ~ i ~ "/" %}
+                    {% endif %}
+                    <li>
+                        {% if i == current_page %}
+                            <span class="current">{{ i }}</span>
+                        {% else %}
+                            <a href="{{ page_url }}">{{ i }}</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+                
+                <!-- Last page and elipsis -->
+                {% if end_page < total_pages %}
+                    {% if end_page < total_pages - 1 %}
+                        <li><span>...</span></li>
+                    {% endif %}
+                    <li><a href="{{ pager.base_url }}{{ total_pages}}">{{ total_pages}}</a></li>
+                {% endif %}
+                
+                <!-- Next page link -->
+                {% if paginator.next %}
+                    <li><a href="{{ paginator.next }}" rel="next">Next →</a></li>
+                {% else %}
+                    <li><span class="disabled">Next →</span></li>
+                {% endif %}
+           </ul>
+        </nav>  
+    {% endif %}
+{% endmacro %}
+
