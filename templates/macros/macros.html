@@ -87,7 +87,7 @@
 {% macro blog_post(post) %}
     {% if post %}
         <article class="blog-post">
-            <h2>{{ post.title }}</h2>
+            <h2><a href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a></h2>
             {{ macros::post_meta(post=post) }}
             {{ macros::post_excerpt(post=post) }}
             <a href="{{ post.permalink }}" class="read-more">Read More</a>
