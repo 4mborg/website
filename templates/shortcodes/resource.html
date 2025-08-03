@@ -1,0 +1,26 @@
+<div class="resource">
+    <h3 id="{{ name | slugify }}">
+        <a href="#{{ name | slugify }}">
+            {{ name }}
+        </a>
+    </h3>
+    {% if youtube_id %}
+    <div class="youtube-embed">
+        <iframe
+            src="https://www.youtube-nocookie.com/embed/{{ youtube_id }}"
+            webkitallowfullscreen
+            mozallowfullscreen
+            allowfullscreen>
+        </iframe>
+    </div>    
+    {% endif %}
+    <p>
+        {{ body | safe}}
+    </p>
+    <p>
+        <a class="read-more" href="{{ link }}" target="_blank">
+            Read More
+        </a>
+    </p>
+    <hr>
+</div>
