@@ -230,11 +230,11 @@ Another win32 API tutorial.
 A system for generating music.
 <hr>
 
-### [https://github.com/velipso/sndfilter](https://github.com/velipso/sndfilter)
+### [velipso's sndfilter](https://github.com/velipso/sndfilter)
 Algorithms for sound filters.
 <hr>
 
-### [https://www.programmersought.com/article/7805125883/](https://www.programmersought.com/article/7805125883/)
+### [Introduction to Common Audio APIs](https://www.programmersought.com/article/7805125883/)
 Tutorial about low level audio stuff.
 <hr>
 
@@ -244,16 +244,16 @@ Tutorial about low level audio stuff.
 Video about sound frequencies, wave shapes and the math behind it all.
 <hr>
 
-### [https://learn.microsoft.com/en-us/windows/win32/multimedia/devices-and-data-types](https://learn.microsoft.com/en-us/windows/win32/multimedia/devices-and-data-types)
+### [Microsoft's Waveform-Audio Interface](https://learn.microsoft.com/en-us/windows/win32/multimedia/devices-and-data-types)
 Offical M$ documentation about some Win32 API audio functions.
 <hr>
 
-### [http://midi.teragonaudio.com/tech/stream.htm](http://midi.teragonaudio.com/tech/stream.htm)
-Is my community obsessed with audio? Anyways, another low level audio thing.
+### [MIDI Stream API Tutorial](http://midi.teragonaudio.com/tech/stream.htm)
+An in-depth guide to the MIDI Stream API on Windows.
 <hr>
 
-### [http://midi.teragonaudio.com/tech/lowmidi.htm](http://midi.teragonaudio.com/tech/lowmidi.htm)
-Low level midi API
+### [Low Level MIDI API](http://midi.teragonaudio.com/tech/lowmidi.htm)
+An in-depth guide to the Low level MIDI API on Windows.
 <hr>
 
 ### [Javidx9's Procedural Generation: Programming the Universe](https://www.youtube.com/watch?v=ZZY9YE7rZJw)
