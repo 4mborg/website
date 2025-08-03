@@ -266,19 +266,19 @@ Procedural generation tutorial
 A wikipedia article that details the Lehmer random number generator and provides several implementations.
 <hr>
 
-### [https://dzone.com/articles/packers-how-they-work-featuring-upx](https://dzone.com/articles/packers-how-they-work-featuring-upx)
+### [Packers, How They Work, Featuring UPX](https://dzone.com/articles/packers-how-they-work-featuring-upx)
 A guide about executable packers with a focus on UPX (which works on Linux, unlike Crinkler)
 <hr>
 
-### [https://www.geeks3d.com/20200211/how-to-load-spir-v-shaders-in-opengl/](https://www.geeks3d.com/20200211/how-to-load-spir-v-shaders-in-opengl/)
+### [How to Load SPIR-V Shaders in OpenGL](https://www.geeks3d.com/20200211/how-to-load-spir-v-shaders-in-opengl/)
 SPIR-V Shaders tutorial in OpenGL.
 <hr>
 
-### [https://stackoverflow.com/a/8261635/7767689](https://stackoverflow.com/a/8261635/7767689)
+### [How to play wave on Windows](https://stackoverflow.com/a/8261635/7767689)
 How to play arbitrary wave sounds with the Win32 API.
 <hr>
 
-### [https://nullprogram.com/blog/2023/02/15/](https://nullprogram.com/blog/2023/02/15/)
-Tips and tricks for writing small programs.
+### [Freestanding (no C Runtime) on Windows](https://nullprogram.com/blog/2023/02/15/)
+Tips and tricks for writing lean programs that don't use the C runtime libraries.
 <hr>
 
