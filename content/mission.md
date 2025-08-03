@@ -1,0 +1,14 @@
++++
+title = "Mission Statement"
+description = "The 4MB Jam is dedicated to sustaining its community and educating developers on creating resource-efficient applications. By minimizing CPU, memory, storage, and network usage, the initiative promotes respect for client resources, enhances game longevity, and reduces environmental impact through less e-waste and prolonged hardware lifespan."
++++
+
+The 4MB Jam, as an organisation, has both an ideological mission and a core mission. The core mission is more important than the ideological mission.
+
+* The core mission is to continue the existence of the 4MB Jam community for as long as possible.
+* In this modern era many mainstream applications and games have become bloated. Whether it's CPU cycles, memory usage, storage space, or network traffic there is usually room to improve! The goal of the 4MB Jam is to educate developers, new and experienced alike, about the tools and techniques which can be used to produce an application while using as little computer resources as possible. Consider the following benefits:
+    1. Respect of client resources; the current situation is that developers treat the local storage and the bandwith of their clients as free real estate. 
+        + Considering the cost of storage nowadays, the callous disregard for storage forces uncomfortable choices for gamers: one either has to pay for more storage or uninstall games to make space for new games.
+        + Fast or affordable internet connectivity is not a guarrentee, even in industrialized countries, nevermind developing nations and other states in between. Large games can therefore be unpleasantly long to download and even incur additional and expensive costs on the shoulders of gamers.
+    2. Game longevity; smaller games have less chances than large games of getting uninstalled to make space for new games and hence are more likely to be replayed and receive continuous attention from their respective communities (which are often responsible for making mods, doing speedruns, organising tournaments and even making unofficial ports, which are all things that make a game live longer).
+    3. Better impact on the environment; Storage media, whether it is SSD or HDD, are not eternal and their lifespan is affected by the usage we make of them. The intensive use brought about by large read/write operations can take their toll on such hardware and even drastically reduce their expected lifespan, which doesn't help the issue with e-waste, which is not a simple issue to solve. This also circles back to respecting client resources, as dead storage media will need to be replaced.
