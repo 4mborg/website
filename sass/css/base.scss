@@ -190,7 +190,9 @@ a:hover {
         h1:first-child a:hover {
             text-decoration: none;
         }
-
+        hr {
+            height: 1px;
+        }
         .join-btn:active,
         .join-btn:link,
         .join-btn:visited {
