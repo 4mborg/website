@@ -3,7 +3,7 @@ title = "Resources"
 description = "A list of resources for participants of the 4MB Game Jam built by the discord community "
 +++
 
-This list of resources was built over time by the 4MB Game Jam Discord community and compiled by Ske; I only added the short descriptions which I took either verbatim or by rephrasing the project descriptions.
+This list of resources was built over time by the 4MB Game Jam Discord community.
 
 ### [potetre2d](https://github.com/SheatNoisette/potetre2d)
 A game engine made specifically for the 4MB Game Jam.
