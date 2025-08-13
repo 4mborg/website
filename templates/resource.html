@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 
+{% block title %}Resources{% endblock %}
+
+{% block seo %}
+{{
+    macros::og_seo_meta_tags(
+        url=section.permalink,
+        title="Resources | 4MB Game Jam",
+        description="A curated list of helpful resources for participants of the 4MB Game Jam",
+        keywords="4MB Jam, game jam, game development, indie games, coding challenge"
+    )
+}}
+{% endblock seo %}
+
 {% block content %}
     <div class="blog">
         {{ macros::pagination(paginator=paginator) }}
