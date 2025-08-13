@@ -11,9 +11,9 @@ insert_anchor_links = "heading"
 title = "4mbjam"
 generate_feeds = true
 taxonomies = [
-    {name = "tags"},
+    { name = "tags", paginate_by = 10, feed = true }
 ]
-
+    
 [languages.en.translations]
 language_name = "English"
 about = "About"
