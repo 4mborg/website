@@ -56,20 +56,20 @@
 {% endmacro %}
 
 {% macro post_meta(post) %}
-    {% if post and post.date and post.authors %}
-        <div class="post-meta">
+    <div class="post-meta">
+        {% if post and post.date and post.authors %}
             <span class="author">By {{ post.authors | join(sep=", ") }}</span>
             <span class="date">{{ post.date | date(format="%B %d, %Y", timezone="America/New_York") }}</span>
-            {% if post.taxonomies.tags %}
+        {% endif %}
 
+        {% if post.taxonomies.tags %}
             <div class="post-tags">
                 {% for tag in post.taxonomies.tags %}
                     <span class="tag"><a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a></span>
                 {% endfor %}
             </div>
-            {% endif %}            
-        </div>
-    {% endif %}
+        {% endif %}
+    </div>
 {% endmacro %}
 
 {% macro post_excerpt(post) %}
@@ -95,4 +95,21 @@
     {% endif %}
 {% endmacro %}
 
+{% macro resource_post(post) %}
+    {% if post %}
+        <article class="blog-post">
+
+            <h3 id="{{ post.slug }}"><a href="#{{ post.slug }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+            {{ macros::post_meta(post=post) }}
+
+            {{ post.content | safe }}
+
+            <p>
+                <a class="read-more" href="{{ post.extra.link }}" target="_blank">
+                    Read More
+                </a>
+            </p>
+        </article>
+    {% endif %}
+{% endmacro %}
 

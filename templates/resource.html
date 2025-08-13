@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="blog">
+        {{ macros::pagination(pager=paginator) }}
+
+        <div class="blog-list">
+            {% for post in paginator.pages %}
+                {{ macros::resource_post(post=post) }}
+            {% endfor %}
+        </div>
+
+        {{ macros::pagination(pager=paginator) }}
+    </div>
+{% endblock content %}
