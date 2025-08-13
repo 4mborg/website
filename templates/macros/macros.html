@@ -135,3 +135,21 @@
     {% endif %}
 {% endmacro %}
 
+{% macro og_seo_meta_tags(url, title, description, keywords) %}
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ config.base_url | safe }}/img/logo.png">
+    <meta property="og:url" content="{{ url | safe }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="4MB Game Jam">
+    <!-- Twitter/X Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ config.base_url | safe }}/img/logo.png">
+{% endmacro %}
