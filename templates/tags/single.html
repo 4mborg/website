@@ -4,9 +4,18 @@
 <div class="archive">
     <h1>Tag: {{ term.name }}</h1>
     <div class="blog-list">
-        {% for post in term.pages %}
-            {{ macros::blog_post(post=post) }}
-        {% endfor %}
+        {{ macros::pagination(pager=paginator) }}
+
+        <div class="blog-list">
+            {% for post in paginator.pages %}
+                {{ macros::blog_post(post=post) }}
+            {% endfor %}
+        </div>
+
+        {{ macros::pagination(pager=paginator) }}
     </div>
 </div>
 {% endblock content %}
+
+
+
