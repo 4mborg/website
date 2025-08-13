@@ -517,6 +517,148 @@ a:hover {
     }
 }
 
+@media screen and (max-width: 475px) {
+    .container {
+        header {
+            padding-top: 3rem;
+            nav {
+                display: block;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                height: 3rem;
+                background: #111;
+                border-top: 2px solid #00ff7f;
+                border-bottom: 2px solid #00ff7f;
+                margin: 0;
+                padding: 0;
+
+                .nav-container {
+                    height: 100%;
+                    
+                    &:before,
+                    &:after {
+                        display: inline;
+                        color: #ffff4e;
+                        text-align: center;
+                        line-height: 3rem;
+                        height: 3rem;
+                        width: 2rem;
+                        margin: 0;
+                        padding: 0;
+                    }
+
+                    &:before {
+                        content: "$";
+                    }
+
+                    &:after {
+                        content: "_";
+                        animation: blink 1s step-end infinite;
+                    }
+
+                    #menu-toggle {
+                        display: none;
+                    }
+
+                    #menu-toggle:checked ~ .nav-links {
+                        display: block;
+                    }
+
+                    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                        transform: rotate(-45deg);
+                        top: 1.5rem;
+                    }
+
+                    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                        opacity: 0;
+                    }
+
+                    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                        transform: rotate(45deg);
+                        top: 1.5rem;
+                    }    
+
+                    .hamburger {
+                        display: block;
+                        cursor: pointer;
+                        width: 2rem;
+                        height: 100%;
+                        position: absolute;
+                        top: 0;
+                        right: 1rem;
+
+                        span {
+                            background-color: white;
+                            height: 3px;
+                            width: 100%;
+                            position: absolute;
+                            left: 0;
+                            transition: all 0.3s;
+                        }
+                        
+                        span:nth-child(1) {
+                            top: 1rem;
+                        }
+
+                        span:nth-child(2) {
+                            top: 1.5rem;
+                        }
+
+                        span:nth-child(3) {
+                            top: 2rem;
+                        }
+                    }
+
+                    .nav-links {
+                        display: none;
+                        width: 100%;
+                        position: absolute;
+                        top: 3rem;
+                        left: 0;
+                        background-color: #333;
+                        flex-direction: column;
+                        margin: 0;
+                        padding: 0;
+                        justify-content: center;
+                        align-items: center;
+                        list-style-type: none;
+                        border-bottom: 2px solid #00ff7f;
+
+                        li a:active,
+                        li a:link,
+                        li a:visited {
+                            display: block;
+                            width: 100%;
+                            padding: 1rem;
+                            background: #702122;
+                            background: #003F00;
+                            font-family: 'Droid Sans Mono', sans-serif;
+                            font-size: 1rem;
+                            font-weight: bold;
+                            text-decoration: none;
+                            transition: background-color 0.4s, color 0.4s;
+                        }
+
+                        li a:hover {
+                            background: #ffff4e;
+                            background: #dfdf4e;
+                            color: #702122;
+                            text-decoration: none;
+                        }                        
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    
+}
+
+
 /* Define the blinking animation */
 @keyframes blink {
     0% {
