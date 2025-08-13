@@ -1,58 +1,80 @@
-{% macro pagination(pager) %}
-    {% if pager %}
-        <nav class="pagination">
-            <ul>
-                <!-- Previous page link -->
-                {% if paginator.previous %}
-                    <li><a href="{{ paginator.previous }}" rel="prev">← Previous</a></li>
-                {% else %}
-                    <li><span class="disabled">← Previous</a></li>
-                {% endif %}
+{% macro pagination(paginator) %}
+{%- set max_pages_to_show = 5 -%} {# Show up to 5 pages, like GitHub #}
+{%- set half_window = (max_pages_to_show - 1) / 2 | round(method="floor") | int -%} {# Show 3 pages on either side of current #}
 
-                {% set current_page = pager.current_index %}
-                {% set total_pages = pager.number_pagers %}
-                {% set max_display = 5 %}
-                
-                {% set start_page = (current_page - max_display / 2) | round(method="floor") | int %}
-                {% if start_page < 1 %}
-                    {% set start_page = 1 %}
-                {% endif %}
+{# Calculate start_page #}
+{%- set start_page = paginator.current_index - half_window -%}
+{%- if start_page < 1 %}
+    {%- set start_page = 1 -%}
+{%- endif %}
 
-                {% set end_page = start_page + max_display - 1 %}
-                {% if end_page > total_pages %}
-                    {% set end_page = total_pages %}
-                    {% set start_page = (total_pages - max_display + 1) %}
-                    {% if start_page < 1 %}
-                        {% set start_page = 1 %}
-                    {% endif %}
-                {% endif %}
+{# Calculate end_page #}
+{%- set end_page = paginator.current_index + half_window -%}
+{%- if end_page > paginator.number_pagers %}
+    {%- set end_page = paginator.number_pagers -%}
+{%- endif %}
 
-                <!-- Page numbers -->
-                {% for i in range(start=start_page, end=end_page + 1) %}
-                    {% set page_url = paginator.base_url %}
-                    {% if i == 1 %}
-                        {% set page_url = paginator.first %}
-                    {% else %}
-                        {% set page_url = paginator.base_url ~ i ~ "/" %}
-                    {% endif %}
-                    <li>
-                        {% if i == current_page %}
-                            <span class="current">{{ i }}</span>
-                        {% else %}
-                            <a href="{{ page_url }}">{{ i }}</a>
-                        {% endif %}
-                    </li>
-                {% endfor %}
-                
-                <!-- Next page link -->
-                {% if paginator.next %}
-                    <li><a href="{{ paginator.next }}" rel="next">Next →</a></li>
-                {% else %}
-                    <li><span class="disabled">Next →</span></li>
-                {% endif %}
-           </ul>
-        </nav>  
-    {% endif %}
+{# Adjust start/end to ensure we show enough pages #}
+{%- if end_page - start_page + 1 < max_pages_to_show %}
+    {%- if start_page == 1 %}
+        {%- set end_page = start_page + max_pages_to_show - 1 -%}
+        {%- if end_page > paginator.number_pagers %}
+            {%- set end_page = paginator.number_pagers -%}
+        {%- endif %}
+    {%- else %}
+        {%- set start_page = end_page - max_pages_to_show + 1 -%}
+        {%- if start_page < 1 %}
+            {%- set start_page = 1 -%}
+        {%- endif %}
+    {%- endif %}
+{%- endif %}
+
+{# Generate array of page numbers using range filter #}
+{%- set page_numbers = range(start=start_page, end=end_page + 1) -%}
+
+<nav class="pagination" aria-label="Pagination">
+    {# Previous Link #}
+    {%- if paginator.previous %}
+        <a class="pagination-previous" href="{{ paginator.previous | safe }}" rel="prev">Previous</a>
+    {%- else %}
+        <span class="pagination-previous disabled">Previous</span>
+    {%- endif %}
+
+    {# Page Numbers #}
+    <div class="pagination-numbers">
+        {# Always show first page #}
+        {%- if start_page > 1 %}
+            <a class="pagination-number" href="{{ paginator.base_url | safe }}1">1</a>
+            {%- if start_page > 2 %}
+                <span class="pagination-ellipsis">…</span>
+            {%- endif %}
+        {%- endif %}
+
+        {# Iterate over page_numbers array #}
+        {%- for i in page_numbers %}
+            {%- if i == paginator.current_index %}
+                <span class="pagination-number current">{{ i }}</span>
+            {%- else %}
+                <a class="pagination-number" href="{{ paginator.base_url | safe }}{{ i }}">{{ i }}</a>
+            {%- endif %}
+        {%- endfor %}
+
+        {# Always show last page if not in range #}
+        {%- if end_page < paginator.number_pagers %}
+            {%- if end_page < paginator.number_pagers - 1 %}
+                <span class="pagination-ellipsis">…</span>
+            {%- endif %}
+            <a class="pagination-number" href="{{ paginator.base_url | safe }}{{ paginator.number_pagers }}">{{ paginator.number_pagers }}</a>
+        {%- endif %}
+    </div>
+
+    {# Next Link #}
+    {%- if paginator.next %}
+        <a class="pagination-next" href="{{ paginator.next | safe }}" rel="next">Next</a>
+    {%- else %}
+        <span class="pagination-next disabled">Next</span>
+    {%- endif %}
+</nav>
 {% endmacro %}
 
 {% macro post_meta(post) %}

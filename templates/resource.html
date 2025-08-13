@@ -2,7 +2,7 @@
 
 {% block content %}
     <div class="blog">
-        {{ macros::pagination(pager=paginator) }}
+        {{ macros::pagination(paginator=paginator) }}
 
         <div class="blog-list">
             {% for post in paginator.pages %}
@@ -10,6 +10,6 @@
             {% endfor %}
         </div>
 
-        {{ macros::pagination(pager=paginator) }}
+        {{ macros::pagination(paginator=paginator) }}
     </div>
 {% endblock content %}
