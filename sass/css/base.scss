@@ -465,7 +465,7 @@ a:hover {
         padding: 15px;
 
 
-        .pagination ul li:not(:first-child):not(:last-child):not(:has(.current)) {
+        .pagination-numbers {
             display: none;
         }
         
