@@ -1,20 +1,15 @@
 # 4MB Game Jam Website
 
-WIP PHP site
+Greetings, this is the repo for the main website and blog. It uses Zola
+and custom scripts for development and deployment.
 
-## Development Instructions
+Scripts located in the ``scripts`` directory are written with the assumption
+they will be fun from the root directory.
 
-Run website in a local server:
-
-```bash
-php -S <address-to-serve-website>
-```
-
-For example:
+For example, to deploy the development server, you would run the following
+command from the root directory of the repositoty.
 
 ```bash
-php -S localhost:8888
+user@host:website$ scripts/run-dev-server.sh
 ```
-
-Will serve the website at the address: http://localhost:8888
-
+   

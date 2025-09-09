@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}{{ section.title }}{% endblock %}
+{% block description %}{{ section.description }}{% endblock %}
+
+{% block seo %}
+{{
+    macros::og_seo_meta_tags(
+        url=section.permalink,
+        title="4MB Game Jam",
+        description=section.description,
+        keywords="4MB Jam, game jam, game development, indie games, coding challenge"
+    )
+}}
+{% endblock seo %}
+
+{% block head %}
+    <style>
+        article p {
+            text-align: center;
+        }
+    </style>
+{% endblock head %}
+
+{% block content %}{{ section.content | safe }}{% endblock content %}
+       

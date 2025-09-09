@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="archive">
+    <h1>Tag: {{ term.name }}</h1>
+    <div class="blog-list">
+        {{ macros::pagination(paginator=paginator) }}
+
+        <div class="blog-list">
+            {% for post in paginator.pages %}
+                {{ macros::blog_post(post=post) }}
+            {% endfor %}
+        </div>
+
+        {{ macros::pagination(paginator=paginator) }}
+    </div>
+</div>
+{% endblock content %}
+
+
+

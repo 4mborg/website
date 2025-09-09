@@ -1,0 +1,9 @@
+<div class="{% if class %}{{class}}{% else %}youtube-embed{% endif %}">
+    <iframe
+        src="https://www.youtube-nocookie.com/embed/{{id}}{% if autoplay %}?autoplay=1{% endif %}"
+        webkitallowfullscreen
+        mozallowfullscreen
+        allowfullscreen>
+    </iframe>
+</div>
+

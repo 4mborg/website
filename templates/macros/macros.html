@@ -1,0 +1,155 @@
+{% macro pagination(paginator) %}
+{%- set max_pages_to_show = 5 -%} {# Show up to 5 pages, like GitHub #}
+{%- set half_window = (max_pages_to_show - 1) / 2 | round(method="floor") | int -%} {# Show 3 pages on either side of current #}
+
+{# Calculate start_page #}
+{%- set start_page = paginator.current_index - half_window -%}
+{%- if start_page < 1 %}
+    {%- set start_page = 1 -%}
+{%- endif %}
+
+{# Calculate end_page #}
+{%- set end_page = paginator.current_index + half_window -%}
+{%- if end_page > paginator.number_pagers %}
+    {%- set end_page = paginator.number_pagers -%}
+{%- endif %}
+
+{# Adjust start/end to ensure we show enough pages #}
+{%- if end_page - start_page + 1 < max_pages_to_show %}
+    {%- if start_page == 1 %}
+        {%- set end_page = start_page + max_pages_to_show - 1 -%}
+        {%- if end_page > paginator.number_pagers %}
+            {%- set end_page = paginator.number_pagers -%}
+        {%- endif %}
+    {%- else %}
+        {%- set start_page = end_page - max_pages_to_show + 1 -%}
+        {%- if start_page < 1 %}
+            {%- set start_page = 1 -%}
+        {%- endif %}
+    {%- endif %}
+{%- endif %}
+
+{# Generate array of page numbers using range filter #}
+{%- set page_numbers = range(start=start_page, end=end_page + 1) -%}
+
+<nav class="pagination" aria-label="Pagination">
+    {# Previous Link #}
+    {%- if paginator.previous %}
+        <a class="pagination-previous" href="{{ paginator.previous | safe }}" rel="prev">Previous</a>
+    {%- else %}
+        <span class="pagination-previous disabled">Previous</span>
+    {%- endif %}
+
+    {# Page Numbers #}
+    <div class="pagination-numbers">
+        {# Always show first page #}
+        {%- if start_page > 1 %}
+            <a class="pagination-number" href="{{ paginator.base_url | safe }}1">1</a>
+            {%- if start_page > 2 %}
+                <span class="pagination-ellipsis">…</span>
+            {%- endif %}
+        {%- endif %}
+
+        {# Iterate over page_numbers array #}
+        {%- for i in page_numbers %}
+            {%- if i == paginator.current_index %}
+                <span class="pagination-number current">{{ i }}</span>
+            {%- else %}
+                <a class="pagination-number" href="{{ paginator.base_url | safe }}{{ i }}">{{ i }}</a>
+            {%- endif %}
+        {%- endfor %}
+
+        {# Always show last page if not in range #}
+        {%- if end_page < paginator.number_pagers %}
+            {%- if end_page < paginator.number_pagers - 1 %}
+                <span class="pagination-ellipsis">…</span>
+            {%- endif %}
+            <a class="pagination-number" href="{{ paginator.base_url | safe }}{{ paginator.number_pagers }}">{{ paginator.number_pagers }}</a>
+        {%- endif %}
+    </div>
+
+    {# Next Link #}
+    {%- if paginator.next %}
+        <a class="pagination-next" href="{{ paginator.next | safe }}" rel="next">Next</a>
+    {%- else %}
+        <span class="pagination-next disabled">Next</span>
+    {%- endif %}
+</nav>
+{% endmacro %}
+
+{% macro post_meta(post) %}
+    <div class="post-meta">
+        {% if post and post.date and post.authors %}
+            <span class="author">By {{ post.authors | join(sep=", ") }}</span>
+            <span class="date">{{ post.date | date(format="%B %d, %Y", timezone="America/New_York") }}</span>
+        {% endif %}
+
+        {% if post.taxonomies.tags %}
+            <div class="post-tags">
+                {% for tag in post.taxonomies.tags %}
+                    <span class="tag"><a href="{{ get_taxonomy_url(kind="tags", name=tag) }}">{{ tag }}</a></span>
+                {% endfor %}
+            </div>
+        {% endif %}
+    </div>
+{% endmacro %}
+
+{% macro post_excerpt(post) %}
+    {% if post %}
+        <p class="post-excerpt">
+            {% if post.summary %}
+                {{ post.summary | striptags | trim | safe }}
+            {% else %}
+                {{ post.content | striptags | trim | truncate(length=172) | safe }}
+            {% endif %}
+        </p>
+    {% endif %}
+{% endmacro %}
+
+{% macro blog_post(post) %}
+    {% if post %}
+        <article class="blog-post">
+            <h2><a href="{{ post.permalink }}" title="{{ post.title }}">{{ post.title }}</a></h2>
+            {{ macros::post_meta(post=post) }}
+            {{ macros::post_excerpt(post=post) }}
+            <a href="{{ post.permalink }}" class="read-more">Read More</a>
+        </article>
+    {% endif %}
+{% endmacro %}
+
+{% macro resource_post(post) %}
+    {% if post %}
+        <article class="blog-post">
+
+            <h3 id="{{ post.slug }}"><a href="#{{ post.slug }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+            {{ macros::post_meta(post=post) }}
+
+            {{ post.content | safe }}
+
+            <p>
+                <a class="read-more" href="{{ post.extra.link }}" target="_blank">
+                    Read More
+                </a>
+            </p>
+        </article>
+    {% endif %}
+{% endmacro %}
+
+{% macro og_seo_meta_tags(url, title, description, keywords) %}
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="{{ description }}">
+    <meta name="keywords" content="{{ keywords }}">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="{{ title }}">
+    <meta property="og:description" content="{{ description }}">
+    <meta property="og:image" content="{{ config.base_url | safe }}/img/logo.png">
+    <meta property="og:url" content="{{ url | safe }}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="4MB Game Jam">
+    <!-- Twitter/X Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ title }}">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:image" content="{{ config.base_url | safe }}/img/logo.png">
+{% endmacro %}

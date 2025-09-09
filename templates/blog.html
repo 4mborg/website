@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Blog{% endblock %}
+
+{% block seo %}
+{{
+    macros::og_seo_meta_tags(
+        url=section.permalink,
+        title="Blog | 4MB Game Jam",
+        description="The Blog for the 4MB Game Jam",
+        keywords="4MB Jam, game jam, game development, indie games, coding challenge"
+    )
+}}
+{% endblock seo %}
+
+
+{% block content %}
+    <div class="blog">
+        {{ macros::pagination(paginator=paginator) }}
+
+        <div class="blog-list">
+            {% for post in paginator.pages %}
+                {{ macros::blog_post(post=post) }}
+            {% endfor %}
+        </div>
+
+        {{ macros::pagination(paginator=paginator) }}
+    </div>
+{% endblock content %}
