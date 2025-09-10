@@ -66,7 +66,7 @@ a:hover {
         color: rgb(204, 204, 204);
         padding: 1rem;
         padding-left: 1.4rem;
-        
+
         h1:first-child {
             padding-top: 1.2rem;
             padding-bottom: 1.2rem;
@@ -78,6 +78,7 @@ a:hover {
             padding-bottom: 0.8rem;
             border-bottom: 1px solid #3d444db3;
             margin-bottom: 1.2rem;
+
             .author {
                 font-weight: bold;
             }
@@ -124,9 +125,11 @@ a:hover {
         h1:first-child a:hover {
             text-decoration: none;
         }
+
         hr {
             height: 1px;
         }
+
         .join-btn:active,
         .join-btn:link,
         .join-btn:visited {
@@ -145,7 +148,7 @@ a:hover {
             color: #702122;
             transform: scale(1.05);
         }
-        
+
         blockquote {
             color: #8CA98E;
         }
@@ -168,6 +171,7 @@ a:hover {
             background-color: rgba(0, 128, 0, 0.8);
             color: #fff;
         }
+
         .youtube-embed {
             iframe {
                 border: none;
@@ -189,7 +193,7 @@ a:hover {
             padding: 0.5em;
             margin: 1% 1% 15px 1%;
         }
-        
+
         .warning {
             background: #7a2720;
             border-color: #d04437;
@@ -237,7 +241,7 @@ a:hover {
             border-style: solid;
             font-family: monospace
         }
-        
+
         .panel p,
         .box p {
             margin-bottom: 0;
@@ -275,7 +279,8 @@ a:hover {
         font-size: 14px;
     }
 
-    .pagination-previous, .pagination-next {
+    .pagination-previous,
+    .pagination-next {
         padding: 6px 12px;
         border: 1px solid #00ff7f;
         border-radius: 3px;
@@ -283,7 +288,8 @@ a:hover {
         // color: #0366d6;
     }
 
-    .pagination-previous.disabled, .pagination-next.disabled {
+    .pagination-previous.disabled,
+    .pagination-next.disabled {
         color: #003F00;
         border-color: #003F00;
         cursor: not-allowed;
@@ -332,12 +338,13 @@ a:hover {
     }
 
     .blog-post h2 {
+
         a:active,
         a:link,
         a:visited {
             color: rgb(204, 204, 204);
         }
-        
+
         a:hover {
             text-decoration: none;
         }
@@ -377,8 +384,10 @@ a:hover {
         list-style-type: none;
         margin: 2rem 0;
         padding: 0;
+
         li {
             padding: 0.4rem;
+
             .tag {
                 padding: 0.6rem;
             }
@@ -484,7 +493,7 @@ a:hover {
         .pagination-numbers {
             display: none;
         }
-        
+
         article .join-btn {
             padding: 10px 20px;
             font-size: 1rem;
@@ -498,7 +507,7 @@ a:hover {
             flex-direction: column;
             gap: 1rem;
         }
-        
+
         footer .footer-social-copyright {
 
             .social-links {
@@ -536,16 +545,16 @@ a:hover {
                 border-bottom: 2px solid #00ff7f;
                 margin: 0;
                 padding: 0;
-                
+
                 .nav-container {
                     height: 100%;
                 }
-                
+
                 #menu-toggle,
                 .hamburer {
                     display: none;
                 }
-                
+
                 .nav-links {
                     display: flex;
                     position: relative;
@@ -609,6 +618,7 @@ a:hover {
     .container {
         header {
             padding-top: 3rem;
+
             nav {
                 display: block;
                 position: fixed;
@@ -624,7 +634,7 @@ a:hover {
 
                 .nav-container {
                     height: 100%;
-                    
+
                     &:before,
                     &:after {
                         display: inline;
@@ -650,23 +660,23 @@ a:hover {
                         display: none;
                     }
 
-                    #menu-toggle:checked ~ .nav-links {
+                    #menu-toggle:checked~.nav-links {
                         display: block;
                     }
 
-                    #menu-toggle:checked ~ .hamburger span:nth-child(1) {
+                    #menu-toggle:checked~.hamburger span:nth-child(1) {
                         transform: rotate(-45deg);
                         top: 1.5rem;
                     }
 
-                    #menu-toggle:checked ~ .hamburger span:nth-child(2) {
+                    #menu-toggle:checked~.hamburger span:nth-child(2) {
                         opacity: 0;
                     }
 
-                    #menu-toggle:checked ~ .hamburger span:nth-child(3) {
+                    #menu-toggle:checked~.hamburger span:nth-child(3) {
                         transform: rotate(45deg);
                         top: 1.5rem;
-                    }    
+                    }
 
                     .hamburger {
                         display: block;
@@ -685,7 +695,7 @@ a:hover {
                             left: 0;
                             transition: all 0.3s;
                         }
-                        
+
                         span:nth-child(1) {
                             top: 1rem;
                         }
@@ -718,7 +728,6 @@ a:hover {
                         li a:link,
                         li a:visited {
                             display: block;
-                            width: 100%;
                             padding: 1rem;
                             background: #702122;
                             background: #003F00;
@@ -734,7 +743,7 @@ a:hover {
                             background: #dfdf4e;
                             color: #702122;
                             text-decoration: none;
-                        }                        
+                        }
                     }
                 }
             }
@@ -743,7 +752,7 @@ a:hover {
 
 
 
-    
+
 }
 
 
