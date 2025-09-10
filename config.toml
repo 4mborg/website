@@ -26,3 +26,4 @@ next_page = "Next Page"
 last_page = "Last Page"
 
 [extra]
+liveReloadHostname = "test.moros1138.com"
