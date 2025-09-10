@@ -1,29 +1,33 @@
 base_url = "https://4mbjam.dev"
-compile_sass = true
-build_search_index = false
+
+title = "4mbjam"
+
+description = ""
+
 default_language = "en"
 
-[markdown]
-highlight_code = true
-insert_anchor_links = "heading"
+compile_sass = true
 
-[languages.en]
-title = "4mbjam"
 generate_feeds = true
+
+feed_filenames = ["rss.xml"]
+
+
 taxonomies = [
     { name = "tags", paginate_by = 10, feed = true }
 ]
-    
-[languages.en.translations]
-language_name = "English"
-about = "About"
-home = "Home"
-tags = "Tags"
-archive = "Archive"
-links = "Links"
-date_format = "%Y-%m-%d"
-next_page = "Next Page"
-last_page = "Last Page"
+
+build_search_index = false
+
+[markdown]
+
+highlight_code = true
+
+
+bottom_footnotes = false    
+
+insert_anchor_links = "heading"
+
 
 [extra]
 liveReloadHostname = "test.moros1138.com"
