@@ -28,6 +28,4 @@ bottom_footnotes = false
 
 insert_anchor_links = "heading"
 
-
 [extra]
-liveReloadHostname = "test.moros1138.com"
