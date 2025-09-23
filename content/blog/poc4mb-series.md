@@ -2,7 +2,7 @@
 title = "Introducing the POC4MB Series"
 template = "page.html"
 date = 2025-09-23
-authors = TheSnide
+authors = ["TheSnide"]
 [taxonomies]
 tags = ["markdown", "poc4mb"]
 
