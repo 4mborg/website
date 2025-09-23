@@ -43,9 +43,10 @@ Draft quality is expected (and encouraged).
 ## Participation
 
 Hang out on the Discord to share:
-	- progress
-	- lack of progress
-	- random findings along the way
+	
+- progress
+- lack of progress
+- random findings along the way
 
 You might surprise yourself or inspire someone else.
 
