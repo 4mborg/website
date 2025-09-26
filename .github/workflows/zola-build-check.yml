@@ -1,0 +1,33 @@
+name: Zola Build Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        submodules: true
+
+    - name: Download Zola v0.20.0
+      run: |
+        wget https://github.com/getzola/zola/releases/download/v0.20.0/zola-v0.20.0-x86_64-unknown-linux-gnu.tar.gz
+        tar -xzf zola-v0.20.0-x86_64-unknown-linux-gnu.tar.gz
+        chmod +x zola
+        mv zola /usr/local/bin/
+
+    - name: Verify Zola version
+      run: zola --version
+
+    - name: Run Zola check
+      run: zola check
+
+    - name: Run Zola build
+      run: zola build

@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="archive">
-    <h1>{{ trans(key="tags", lang=lang) }}</h1>
+    <h1>Tags</h1>
     <ul class="tag-list">
         {% for term in terms | sort(attribute="page_count") | reverse %}
             <li>
