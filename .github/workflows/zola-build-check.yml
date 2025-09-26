@@ -2,9 +2,9 @@ name: Zola Build Check
 
 on:
   push:
-    branches: [ main, develop ]  # Triggers on direct pushes to main
+    branches: [ main, develop ]
   pull_request:
-    branches: [ main, develop ]  # Triggers on PRs targeting main
+    branches: [ main, develop ]
 
 jobs:
   build:
@@ -14,12 +14,17 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
       with:
-        submodules: true  # If using Zola themes as submodules
+        submodules: true
 
-    - name: Install Zola
-      uses: taiki-e/install-action@c9f66e5f0e8e4f1f3d4d8e1e1f2a3b4c5d6e7f8g  # Pins a recent commit; check for updates
-      with:
-        tool: zola@0.20.0
+    - name: Download Zola v0.20.0
+      run: |
+        wget https://github.com/getzola/zola/releases/download/v0.20.0/zola-v0.20.0-x86_64-unknown-linux-gnu.tar.gz
+        tar -xzf zola-v0.20.0-x86_64-unknown-linux-gnu.tar.gz
+        chmod +x zola
+        mv zola /usr/local/bin/
+
+    - name: Verify Zola version
+      run: zola --version
 
     - name: Run Zola check
       run: zola check
